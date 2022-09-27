@@ -35,9 +35,17 @@ class Follower : MonoBehaviour
         transform.position = Vector3.MoveTowards(selfpoint, targetPoint, maxstep);
 
 
-        
+        if (targetPoint != selfpoint)
+
+
+        {
+
 
             transform.rotation = Quaternion.LookRotation(targetPoint - selfpoint);
+
+        }
+
+
 
 
     }
