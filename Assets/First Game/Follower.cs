@@ -5,6 +5,7 @@ class Follower : MonoBehaviour
 {
     [SerializeField] float speed = 2;
     [SerializeField] Transform target;
+    [SerializeField] AnimationCurve distance;
 
 
     void Update()
