@@ -5,6 +5,7 @@ class Follower : MonoBehaviour
 {
     [SerializeField] float speed = 2;
     [SerializeField] Transform target;
+    [SerializeField] AnimationCurve distance;
 
 
     void Update()
@@ -35,9 +36,17 @@ class Follower : MonoBehaviour
         transform.position = Vector3.MoveTowards(selfpoint, targetPoint, maxstep);
 
 
-        
+        if (targetPoint != selfpoint)
+
+
+        {
+
 
             transform.rotation = Quaternion.LookRotation(targetPoint - selfpoint);
+
+        }
+
+
 
 
     }
