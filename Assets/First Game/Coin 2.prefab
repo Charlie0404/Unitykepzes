@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+    m_Center: {x: 0, y: 1.5, z: 0}
+    m_Extent: {x: 5, y: 0, z: 10}
   value: 1
 --- !u!114 &8511500308950552069
 MonoBehaviour:
