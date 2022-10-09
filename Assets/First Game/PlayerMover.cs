@@ -18,21 +18,29 @@ class PlayerMover : MonoBehaviour
          */
 
 
-        bool up = Input.GetKey(KeyCode.UpArrow);                //Input.GetKey(KeyCode.W)
-        bool down = Input.GetKey(KeyCode.DownArrow);
-        bool left = Input.GetKey(KeyCode.LeftArrow);
-        bool right = Input.GetKey(KeyCode.RightArrow);
+        bool up1 = Input.GetKey(KeyCode.UpArrow);                //Input.GetKey(KeyCode.W)
+        bool down1 = Input.GetKey(KeyCode.DownArrow);
+        bool left1 = Input.GetKey(KeyCode.LeftArrow);
+        bool right1 = Input.GetKey(KeyCode.RightArrow);
+
+        bool up2 = Input.GetKey(KeyCode.W);
+        bool down2 = Input.GetKey(KeyCode.S);
+        bool left2 = Input.GetKey(KeyCode.A);
+        bool right2 = Input.GetKey(KeyCode.D);
+
+
+
 
         float x = 0;
-        if (right)
+        if (right1 || right2)
             x = 1;                  // += else nélkül
-        else if (left)
+        else if (left1 || left2)
             x = -1;
 
         float y = 0;
-        if (up)                     //  -= else nélkül
+        if (up1 || up2)                     //  -= else nélkül
             y = 1;
-        else if (down)
+        else if (down1 || down2)
             y = -1;
         /* 
         float x = 0;
@@ -43,7 +51,7 @@ class PlayerMover : MonoBehaviour
 
 
         Vector3 velocity = new Vector3(x, 0, y);
-        velocity.Normalize(); 
+        velocity.Normalize();
         velocity *= speed;
 
 
@@ -51,7 +59,7 @@ class PlayerMover : MonoBehaviour
 
 
 
-        if(velocity != Vector3.zero)
+        if (velocity != Vector3.zero)
 
             transform.rotation = Quaternion.LookRotation(velocity);   // Merre nézzen
 

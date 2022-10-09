@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8723e1a889b6aa342841621745179a43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1978037536}
 --- !u!1 &1433496136
 GameObject:
   m_ObjectHideFlags: 0
@@ -2603,7 +2603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9103175155625515193, guid: 8897e441d8923eb4dbec4075135120b6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 9103175155625515193, guid: 8897e441d8923eb4dbec4075135120b6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2639,7 +2639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9103175155625515196, guid: 8897e441d8923eb4dbec4075135120b6, type: 3}
       propertyPath: damage
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9103175155625515198, guid: 8897e441d8923eb4dbec4075135120b6, type: 3}
       propertyPath: a.x
@@ -2656,6 +2656,10 @@ PrefabInstance:
     - target: {fileID: 9103175155625515198, guid: 8897e441d8923eb4dbec4075135120b6, type: 3}
       propertyPath: b.x
       value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103175155625515198, guid: 8897e441d8923eb4dbec4075135120b6, type: 3}
+      propertyPath: b.z
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9103175155625515198, guid: 8897e441d8923eb4dbec4075135120b6, type: 3}
       propertyPath: speed
