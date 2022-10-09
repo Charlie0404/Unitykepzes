@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 64023093}
   - component: {fileID: 64023096}
   - component: {fileID: 64023095}
-  - component: {fileID: 64023097}
   m_Layer: 0
   m_Name: GameObject HF
   m_TagString: Untagged
@@ -206,10 +205,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4557418bc13f8a4d93aafce4a2153bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
-  b: 0
-  c: 0
-  isPythagorean: 1
+  a: 8
+  b: 9
+  c: 4
+  isPythagorean: 0
 --- !u!114 &64023096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,20 +225,6 @@ MonoBehaviour:
   divisibleWith7: 1
   divisibleWith15: 1
   divisibleWith99: 1
---- !u!114 &64023097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 64023091}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae6b40126b2a97b4eab432cf9097506a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  number: 5
-  text: 1, 2, 3, 4, 5
 --- !u!1 &1063468473
 GameObject:
   m_ObjectHideFlags: 0
