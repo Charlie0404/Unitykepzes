@@ -10,7 +10,7 @@ class Explo : MonoBehaviour
     [SerializeField] Rigidbody[] rigidbodies;
     [SerializeField] float upward;
     [SerializeField] LayerMask raycastlayers;
-    [SerializeField] ParticleSystem particleSystem;
+    [SerializeField] new ParticleSystem particleSystem;
 
     
 
