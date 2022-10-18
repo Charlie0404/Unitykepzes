@@ -1,4 +1,6 @@
+/*
 
+ 
 using UnityEngine;
 
 class ControlStructuresPractices : MonoBehaviour
@@ -72,5 +74,5 @@ class ControlStructuresPractices : MonoBehaviour
 }
 
 
-
+*/
 

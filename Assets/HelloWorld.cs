@@ -1,4 +1,4 @@
-
+/*
 using UnityEngine;
 
 class HelloWorld : MonoBehaviour
@@ -73,9 +73,6 @@ class HelloWorld : MonoBehaviour
         bool bb2 = false;
 
         bb2 = true;
-
-
-
-
     }
 }
+*/

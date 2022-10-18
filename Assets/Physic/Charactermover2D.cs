@@ -1,74 +1,85 @@
-
 using UnityEngine;
 
-class Charactermover2D : MonoBehaviour
+class CharacterMover2D : MonoBehaviour
 {
-    [SerializeField] new Rigidbody2D rigidbody; // Azért new mert aláhúzza, mert már Unitynek van rigidbody
-    [SerializeField] float jumpforce;
-    [SerializeField] float moveforce;
-    [SerializeField] int airJump = 1;
+    [SerializeField] new Rigidbody2D rigidbody;
+    [SerializeField] float jumpForce;
+    [SerializeField] float moveForce;
+    [SerializeField] float moveSpeed;
+    [SerializeField] int airJumps = 1;
 
+    [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask canJumpLayer;
 
-
-    bool onGround = false; // ((Csak azért hogy kiírja hogy Ground enter vagy exit)) // alapból false-ot ír ha nem írjuk oda sem
-    int jumpCount = 0;
-
+    bool onGround = false;
+    int jumpCounts = 0;
 
     void OnValidate()
     {
         if (rigidbody == null)
             rigidbody = GetComponent<Rigidbody2D>();
-
-        /*
-        GetComponentInParent<Collider2D>();                         
-        GetComponentInChildren<SpriteRenderer>();
-        */
     }
-
 
     void Update()
     {
         bool jumpPress = Input.GetKeyDown(KeyCode.Space);
 
-
-        if (jumpPress && (onGround || jumpCount > 0))
+        if (jumpPress && jumpCounts > 0)
         {
-            Vector2 x = rigidbody.velocity;
-            x.y = 0;
-            rigidbody.velocity = x;   //Így nem veszti el a vízszintes mozgását
+            Vector2 v = rigidbody.velocity;
+            v.y = 0;
+            rigidbody.velocity = v;
 
-
-            // rigidbody.velocity = Vector2.zero;    // így is mûködik, fenti nélkül
-            rigidbody.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse); // ForceMode beírással // Csak a rigidbodyra tudunk adni aadd force-t
-            jumpCount--;                                                    // impulse = egyszeri, // Velocity Change? (van róla dia vhol)
-                                                                            // Fizika programozásnál legfontosabb fg = AddForce
+            rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            jumpCounts--;
         }
     }
 
     void FixedUpdate()
     {
-        float x = Input.GetAxis("Horizontal"); // X = direction, irány, Lehet GetKey ekkel is, elérhetõsége, Edit/Project Settings/Input/Horizontal
+        float direction = Input.GetAxis("Horizontal");
 
-        rigidbody.AddForce(Vector2.right * x * moveforce, ForceMode2D.Force); //Folytonos azt Force-ban kell FixedUpdate azaz =  ForceMode2D.Force és FixedUpdate alatt
+        if (onGround)
+        {
+            // Földön nincs tehetetlenségünk:
+            Vector2 v = rigidbody.velocity;
+            v.x = direction * moveSpeed;
+            rigidbody.velocity = v;
+        }
+        else
+        {
+            // Levegõben tehetetlen mozgás:
+            rigidbody.AddForce(Vector2.right * direction * moveForce, ForceMode2D.Force);
 
-
+            // Maximalizálom a vizszintes sebességet:
+            Vector2 v = rigidbody.velocity;
+            float dir = Mathf.Sign(v.x);
+            float horizontalSpeed = Mathf.Abs(v.x);
+            v.x = Mathf.Min(horizontalSpeed, moveSpeed) * dir;
+            rigidbody.velocity = v;
+        }
     }
 
-
-
-    void OnCollisionEnter2D(Collision2D collision)   // Oncollison  // void OnCollisionEnter2D(Collision2D collision) sima hitnél
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        onGround = true;                                           // true rész csak a bool miatt
-        jumpCount = airJump + 1;
-        //Debug.Log("Enter: " + collision.collider.name);          // Debug.Log("Hit: " + collision.collider.name); = Itt csak kiírja hogy hit Ground jelen esetben
+        int layer = collision.gameObject.layer; //Lekérem a layert annak amivel ütköztem
+
+        if (groundLayer.Contains (layer))   //Ha tartalmazza a groundLayer mask a layer-t
+        {
+            onGround = true;
+
+            jumpCounts = 0;
+
+        }
+
+        if (canJumpLayer.Contains(layer))
+            jumpCounts = airJumps + 1;
 
     }
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        onGround = false;                                       // false rész csak a bool miatt
-        //Debug.Log("Exit: " + collision.collider.name);
-
+        onGround = false;
+        // Debug.Log("Exit: " + collision.collider.name);
     }
-
 }
