@@ -627,8 +627,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b54d15cd9b96f94f8d3cdfbf03258f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrototype: {fileID: 401679800819664737, guid: 2ad3f0938d9289740a520b05639c3111, type: 3}
-  speed: 30
+  projectilePrototypes:
+  - {fileID: 401679800819664737, guid: fe47c33773b59ee4fa3df685705a66b5, type: 3}
+  - {fileID: 401679800819664737, guid: d4bb6226a0f11814cab63ba814c53b90, type: 3}
+  - {fileID: 401679800819664737, guid: e601535b2b83818478a5dfab2c63efd0, type: 3}
+  speed: 25
+  pattern: 0
+  keys: 
 --- !u!1 &606513351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1365,7 +1370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f9ced102420a7842a544b989a19bf80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 9
 --- !u!54 &1300450878
 Rigidbody:
   m_ObjectHideFlags: 0
