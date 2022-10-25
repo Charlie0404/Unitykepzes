@@ -7,6 +7,18 @@ class Follower : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] AnimationCurve distance;
 
+    [SerializeField] new Rigidbody rigidbody;
+
+
+    void OnValidate()
+    {
+        if (rigidbody == null)
+            rigidbody = GetComponent<Rigidbody>();
+
+    }
+
+
+
 
     void Update()
     {
@@ -32,9 +44,18 @@ class Follower : MonoBehaviour
 
         */
 
-        float maxstep = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(selfpoint, targetPoint, maxstep);
 
+        Vector3 direction = targetPoint - selfpoint;
+        direction.Normalize();
+
+        rigidbody.velocity = direction * speed;
+
+
+
+        /*
+        float maxstep = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(selfpoint, targetPoint, maxstep);    // ezzel mûködött
+        */
 
         if (targetPoint != selfpoint)
 

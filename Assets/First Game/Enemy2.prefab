@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 9103175155625515198}
   - component: {fileID: 9103175155625515199}
   - component: {fileID: 9103175155625515196}
+  - component: {fileID: 2445501729262720127}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -177,6 +178,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+--- !u!54 &2445501729262720127
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9103175155625515195}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1 &9103175156211859756
 GameObject:
   m_ObjectHideFlags: 0
