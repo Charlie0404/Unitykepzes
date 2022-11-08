@@ -632,8 +632,9 @@ MonoBehaviour:
   - {fileID: 401679800819664737, guid: d4bb6226a0f11814cab63ba814c53b90, type: 3}
   - {fileID: 401679800819664737, guid: e601535b2b83818478a5dfab2c63efd0, type: 3}
   speed: 25
-  pattern: 0
-  keys: 
+  pattern: 1
+  keys: 010100000201000003010000
+  destructionTime: 0
 --- !u!1 &606513351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1417,7 @@ MonoBehaviour:
   health: 10
   healthtext: {fileID: 1940071045}
   behavior: {fileID: 1300450877}
+  invincibilityFrames: 1
 --- !u!114 &1300450881
 MonoBehaviour:
   m_ObjectHideFlags: 0
