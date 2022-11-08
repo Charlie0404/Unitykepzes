@@ -9,8 +9,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverObject;
 
 
- 
-    
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
         if (!player.IsAlive())

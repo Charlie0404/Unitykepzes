@@ -3,9 +3,12 @@ using UnityEngine;
 
 class PlayerMover : MonoBehaviour
 {
-    [SerializeField] float speed;                  //offset , speed
+    [SerializeField] float speed = 10;                  //offset , speed
     //[SerializeField] Vector3 velocity;//
+    [SerializeField] float angularSpeed = 180;
+    
 
+    [SerializeField] Animator animator;
 
 
     void Update()
@@ -57,13 +60,30 @@ class PlayerMover : MonoBehaviour
 
         transform.position += velocity * Time.deltaTime;
 
+        bool isRunning = velocity != Vector3.zero;
+
+        animator.SetBool("isRunning", isRunning);
+
+        if (isRunning)
+        {
+             
+            Quaternion targetRot = Quaternion.LookRotation(velocity);   // Merre nézzen
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, angularSpeed * Time.deltaTime);
 
 
-        if (velocity != Vector3.zero)
 
-            transform.rotation = Quaternion.LookRotation(velocity);   // Merre nézzen
+        }
+            
 
 
     }
+    public void StepDown()
+    {
+
+        Debug.Log("Step");
+    
+    }
+
 
 }
